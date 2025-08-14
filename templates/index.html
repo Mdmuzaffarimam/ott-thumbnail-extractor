@@ -1,58 +1,32 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>OTT Thumbnail Extractor (All-in-One)</title>
-  <link rel="stylesheet" href="/static/style.css">
+    <title>OTT Thumbnail Extractor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-  <div class="container">
-    <h1>OTT Thumbnail Extractor <span class="chip">All-in-One</span></h1>
-    <p class="sub">Hotstar · JioCinema · SonyLiv · ZEE5 · Voot (legacy) · Dangal Play · Airtel Xstream</p>
+    <h1>OTT Thumbnail Extractor</h1>
+    <p>Hotstar · JioCinema · SonyLiv · ZEE5 · Airtel Xstream · Dangal Play</p>
 
-    <form method="POST" class="card">
-      <label>Episode/Page URL</label>
-      <input type="url" name="ott_link" placeholder="https://..." value="{{ url or '' }}" required>
+    <form method="POST" enctype="multipart/form-data">
+        <label>Episode/Page URL:</label><br>
+        <input type="text" name="url" placeholder="Enter OTT episode URL" required><br><br>
 
-      <details>
-        <summary>Advanced (optional)</summary>
-        <label>Custom Headers (JSON)</label>
-        <textarea name="headers_json" placeholder='{"Accept-Language":"en-IN"}'>{{ adv_headers or "" }}</textarea>
+        <label>Upload cookies.json (optional for login pages):</label><br>
+        <input type="file" name="cookies" accept=".json"><br><br>
 
-        <label>Cookies (JSON)</label>
-        <textarea name="cookies_json" placeholder='{"auth_token":"..."}'>{{ adv_cookies or "" }}</textarea>
-        <small>Note: Cookies sirf is request ke liye use hote hain; store nahi kiye jaate.</small>
-      </details>
-
-      <button type="submit">Extract Thumbnails</button>
+        <button type="submit">Extract Thumbnail</button>
     </form>
 
+    {% if thumbnail_url %}
+        <h3>Thumbnail Found:</h3>
+        <a href="{{ thumbnail_url }}" target="_blank">
+            <img src="{{ thumbnail_url }}" width="400">
+        </a>
+    {% endif %}
+
     {% if error %}
-      <div class="alert">{{ error }}</div>
+        <p style="color: red;">Error: {{ error }}</p>
     {% endif %}
-
-    {% if thumbnails and thumbnails|length > 0 %}
-      <h3 class="mt">Found {{ thumbnails|length }} thumbnail(s):</h3>
-      <div class="grid">
-        {% for img in thumbnails %}
-        <div class="thumb">
-          <img src="{{ img }}" alt="thumbnail">
-          <div class="meta">
-            <a href="{{ img }}" target="_blank">{{ img }}</a>
-            <div class="btns">
-              <a href="{{ img }}" target="_blank">Open</a>
-              <a href="{{ img }}" download>Download</a>
-            </div>
-          </div>
-        </div>
-        {% endfor %}
-      </div>
-    {% endif %}
-
-    <footer>
-      <small>Public pages pe best result. Login-only pages ke liye apne cookies JSON use karein.</small>
-    </footer>
-  </div>
 </body>
 </html>
