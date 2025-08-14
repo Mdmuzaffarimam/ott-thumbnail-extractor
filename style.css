@@ -1,0 +1,21 @@
+*{box-sizing:border-box}body{margin:0;background:#0d0f14;color:#e8ecf2;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial}
+.container{max-width:800px;margin:40px auto;padding:20px}
+h1{margin:0 0 8px;font-weight:800;font-size:28px;letter-spacing:.2px}
+.chip{background:#2f6bff;color:#fff;border-radius:8px;padding:2px 8px;margin-left:8px;font-size:14px}
+.sub{opacity:.85;margin:0 0 18px}
+label{display:block;margin:14px 0 6px;font-weight:600}
+input,textarea{width:100%;padding:12px 14px;border:1px solid #2a3341;background:#0f131a;color:#e8ecf2;border-radius:10px;outline:none}
+textarea{min-height:90px;resize:vertical}
+details{margin:10px 0 6px}
+.adv{padding:8px 0}
+button{margin-top:14px;background:#2f6bff;color:#fff;border:none;border-radius:10px;padding:12px 16px;font-weight:700;cursor:pointer}
+button:disabled{opacity:.6;cursor:not-allowed}
+#status{margin:14px 0;min-height:20px;opacity:.9}
+#results{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;margin-top:16px}
+.card{border:1px solid #263042;border-radius:12px;overflow:hidden;background:#0f131a}
+.card img{width:100%;display:block}
+.card .meta{padding:10px;border-top:1px solid #263042}
+.meta a{word-break:break-all;color:#a6c4ff;text-decoration:none}
+.meta .btns{display:flex;gap:8px;margin-top:8px}
+.meta .btns a{flex:1;text-align:center;background:#1a2230;border:1px solid #2a3341;border-radius:8px;padding:8px 10px;color:#e8ecf2;text-decoration:none}
+footer{margin:30px 0 10px;opacity:.6;text-align:center}
