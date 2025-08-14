@@ -1,21 +1,22 @@
-*{box-sizing:border-box} body{margin:0;background:#0d0f14;color:#e8ecf2;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial}
-.container{max-width:900px;margin:32px auto;padding:16px}
-h1{margin:0 0 6px;font-weight:800;font-size:28px}
-.chip{background:#2f6bff;color:#fff;border-radius:8px;padding:2px 8px;margin-left:8px;font-size:14px}
-.sub{opacity:.85;margin:0 0 16px}
-label{display:block;margin:12px 0 6px;font-weight:600}
-input,textarea{width:100%;padding:12px 14px;border:1px solid #2a3341;background:#0f131a;color:#e8ecf2;border-radius:10px;outline:none}
-textarea{min-height:90px;resize:vertical}
-details{margin:10px 0}
-button{margin-top:14px;background:#2f6bff;color:#fff;border:none;border-radius:10px;padding:12px 16px;font-weight:700;cursor:pointer}
-.card{border:1px solid #263042;border-radius:12px;padding:14px;background:#0f131a}
-.alert{margin-top:14px;border:1px solid #5b2b2b;background:#241417;color:#ffb2b2;border-radius:10px;padding:10px}
-.mt{margin-top:16px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px;margin-top:12px}
-.thumb{border:1px solid #263042;border-radius:12px;overflow:hidden;background:#0f131a}
-.thumb img{width:100%;display:block}
-.meta{padding:10px;border-top:1px solid #263042}
-.meta a{word-break:break-all;color:#a6c4ff;text-decoration:none}
-.btns{display:flex;gap:8px;margin-top:8px}
-.btns a{flex:1;text-align:center;background:#1a2230;border:1px solid #2a3341;border-radius:8px;padding:8px 10px;color:#e8ecf2;text-decoration:none}
-footer{margin:30px 0 10px;opacity:.6;text-align:center}
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 30px;
+}
+
+input, button {
+    padding: 8px;
+    margin: 5px;
+    width: 300px;
+}
+
+button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
