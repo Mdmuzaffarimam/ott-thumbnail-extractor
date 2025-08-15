@@ -1,40 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>OTT Thumbnail Extractor (Pro)</title>
-  <link rel="stylesheet" href="style.css">
+  <title>OTT Thumbnail Extractor + Telegram Bot</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
   <div class="container">
-    <h1>OTT Thumbnail Extractor <span class="chip">Pro</span></h1>
-    <p class="sub">Paste an episode URL from <b>ZEE5</b> or <b>Hotstar</b>. Optional: add cookies for logged-in pages.</p>
+    <h1>OTT Thumbnail Extractor <span class="chip">Web + Telegram</span></h1>
+    <p class="sub">Hotstar · JioCinema · SonyLiv · ZEE5 · Voot (legacy) · Dangal Play · Airtel Xstream</p>
 
-    <label>Episode URL</label>
-    <input id="url" type="url" placeholder="https://www.hotstar.com/... or https://www.zee5.com/...">
+    <form method="POST" enctype="multipart/form-data" class="card">
+      <label>Episode/Page URL</label>
+      <input type="url" name="ott_link" placeholder="https://..." required>
 
-    <details>
-      <summary>Advanced (optional)</summary>
-      <div class="adv">
+      <details>
+        <summary>Advanced (optional)</summary>
         <label>Custom Headers (JSON)</label>
-        <textarea id="headers" placeholder='{"Accept-Language":"en-IN"}'></textarea>
+        <textarea name="headers_json" placeholder='{"Accept-Language":"en-IN"}'></textarea>
 
-        <label>Cookies (JSON)</label>
-        <textarea id="cookies" placeholder='{"auth_token":"..."}'></textarea>
+        <label>Upload cookies.json (optional for login pages)</label>
+        <input type="file" name="cookies" accept=".json">
+      </details>
+
+      <button type="submit">Extract Thumbnails</button>
+    </form>
+
+    {% if error %}
+      <div class="alert">{{ error }}</div>
+    {% endif %}
+
+    {% if thumbnails and thumbnails|length > 0 %}
+      <h3 class="mt">Found {{ thumbnails|length }} thumbnail(s):</h3>
+      <div class="grid">
+        {% for img in thumbnails %}
+        <div class="thumb">
+          <img src="{{ img }}" alt="thumbnail">
+          <div class="meta">
+            <a href="{{ img }}" target="_blank">{{ img }}</a>
+            <div class="btns">
+                <a href="{{ img }}" target="_blank">Open</a>
+                <a href="{{ img }}" download>Download</a>
+            </div>
+        </div>
       </div>
-    </details>
-
-    <button id="go">Get Thumbnails</button>
-    <div id="status"></div>
-
-    <div id="results"></div>
+      {% endfor %}
+      </div>
+    {% endif %}
 
     <footer>
-      <small>Self-host this tool for privacy. Works on public pages; use cookies for protected pages.</small>
+      <small>Privacy tip: Host on your own Render/Railway. Cookies used only for the request.</small>
     </footer>
   </div>
-
-  <script src="app.js"></script>
 </body>
 </html>
