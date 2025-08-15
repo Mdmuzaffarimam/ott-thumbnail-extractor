@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>OTT Thumbnail Extractor + Telegram Bot</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"/>
 </head>
 <body>
   <div class="container">
@@ -13,7 +13,7 @@
 
     <form method="POST" enctype="multipart/form-data" class="card">
       <label>Episode/Page URL</label>
-      <input type="url" name="ott_link" placeholder="https://..." required>
+      <input type="url" name="ott_link" placeholder="https://..." required/>
 
       <details>
         <summary>Advanced (optional)</summary>
@@ -21,7 +21,7 @@
         <textarea name="headers_json" placeholder='{"Accept-Language":"en-IN"}'></textarea>
 
         <label>Upload cookies.json (optional for login pages)</label>
-        <input type="file" name="cookies" accept=".json">
+        <input type="file" name="cookies" accept=".json"/>
       </details>
 
       <button type="submit">Extract Thumbnails</button>
@@ -36,16 +36,16 @@
       <div class="grid">
         {% for img in thumbnails %}
         <div class="thumb">
-          <img src="{{ img }}" alt="thumbnail">
+          <img src="{{ img }}" alt="thumbnail"/>
           <div class="meta">
             <a href="{{ img }}" target="_blank">{{ img }}</a>
             <div class="btns">
-                <a href="{{ img }}" target="_blank">Open</a>
-                <a href="{{ img }}" download>Download</a>
+              <a href="{{ img }}" target="_blank">Open</a>
+              <a href="{{ img }}" download>Download</a>
             </div>
+          </div>
         </div>
-      </div>
-      {% endfor %}
+        {% endfor %}
       </div>
     {% endif %}
 

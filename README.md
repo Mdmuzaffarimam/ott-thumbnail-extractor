@@ -1,3 +1,3 @@
-# OTT Thumbnail Extractor - Web + Telegram
+# OTT Thumbnail Extractor - Render-ready (Flask + Telegram polling)
 
-See README in previous chat for deploy steps.
+Set BOT_TOKEN in Render environment and deploy.
